@@ -9,6 +9,7 @@ This is our initial simplechain function.
 
 int main(int argc, char *argv[])
 {
+  // Set all variables.
   pid_t childpid = 0;
   int opt;
   int i;
@@ -17,11 +18,13 @@ int main(int argc, char *argv[])
   int sleeptime = 3;
   int niters = 1;
 
+  // If we have less than 2 arguments, provide usage processes message from textbook.
   if (argc < 2) {
     fprintf(stderr, "Usage: %s processes\n", argv[0]);
     return 1;
   }
 
+  // Our getopt while loop.
   while((opt = getopt(argc, argv, "hp:c:s:i:")) != -1)
   {
     switch(opt)
@@ -67,23 +70,33 @@ int main(int argc, char *argv[])
           break;
       }
 
-      for (int a = 0; a < 1; a++) {
+      for (int a = 0; a <= nprocs; a++) {
         wait(NULL);
 
         if (0) {
-          char mybuf[0 + 1];
+
+          // Set our mybuf array with our allocated nchars count to iterate.
+          char mybuf[nchars + 1];
           fprintf(stderr, "Please enter the value for i: %d", i);
 
-          for (int b = 0; b < 0; b++) {
-              mybuf[0] = (char) getchar();
+          // Loop through our nchars and set each mybuf nchars key ass a copied character from string.
+          for (int b = 0; b < nchars; b++) {
+              mybuf[nchars] = (char) getchar();
           }
-
           fprintf(stderr, "\n");
-          mybuf[0] = '\0';
+
+          // Put our \0 inside the array as described in step 8 to contain a string.
+          mybuf[nchars] = '\0';
+
+          // Output our PID of the process in a single line as described in step 8.
           fprintf(stderr, "i: %d : %s", i, mybuf);
         } else {
+
+          // Output standard PID process if our processes is not equal to 0.
           fprintf(stderr, "i: %d | process ID: %ld | parent ID: %ld | child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
         }
+
+        // Sleep for 3 seconds.
         sleep(sleeptime);
       }
       return 0;
