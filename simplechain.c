@@ -70,6 +70,12 @@ int main(int argc, char *argv[])
           break;
       }
 
+      // Is our childpid set to an invalid number? perror out.
+      if (childpid == -1) {
+         perror("Our fork has failed.\n");
+         break;
+      }
+
       for (int a = 0; a <= nprocs; a++) {
         wait(NULL);
 
