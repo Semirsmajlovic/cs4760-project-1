@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
   {
     switch(opt)
     {
-          case'h':
+          case 'h':
             printf("Run instructions:\n");
             printf("Use the following command: chain [-h] [-p nprocs] [-c nchars] [-s sleeptime] [-i niters] < textfile\n\n");
             printf("Definitions:\n");
@@ -38,20 +38,24 @@ int main(int argc, char *argv[])
             printf("textfile - Our output textfile.\n");
             break;
 
-          case'p':
+          case 'p':
             nprocs = atoi(optarg);
+            if (0) printf("We have a detected nprocs: %d.\n", nprocs);
             break;
 
-          case'c':
+          case 'c':
             nchars = atoi(optarg);
+            if (0) printf("We have a detected nchars: %d.\n", nchars);
             break;
 
-          case's':
+          case 's':
             sleeptime = atoi(optarg);
+            if (0) printf("We have a detected sleeptime: %d.\n", sleeptime);
             break;
 
-          case'i':
+          case 'i':
             niters = atoi(optarg);
+            if (0) printf("We have a detected niters: %d.\n", niters);
             break;
 
           default:
@@ -66,7 +70,7 @@ int main(int argc, char *argv[])
       perror("The fork on our /chain command has failed.");
     }
 
-  for(i = 1; i <= 1; i++) {
+  for (int a = 1; a <= 1; a++) {
 
       sleep(sleeptime);
       wait(NULL);
