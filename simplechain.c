@@ -10,11 +10,10 @@ int main(int argc, char * argv[])
 {
   pid_t childpid = 0;
   int opt, i;
-  int nprocs = 4, 
-  int nchars = 80, 
-  int sleeptime = 3, 
+  int nprocs = 4;
+  int nchars = 80;
+  int sleeptime = 3; 
   int niters = 1;
-  int wait = NULL;
 
   if (argc != 2) {
     /* check for valid number of command-line arguments */
@@ -58,11 +57,14 @@ int main(int argc, char * argv[])
   for (i = 1; i < n; i++)
     if (childpid = fork())
       break;
+    if (childpid < 0) {
+      perror("The fork on our /simplechain command has failed.")
+    }
 
   for(j = 1; j <= 1; j++) {
 
       sleep(sleeptime);
-      wait(wait);
+      wait(NULL);
 
       fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n",
         i, (long) getpid(), (long) getppid(), (long) childpid);
