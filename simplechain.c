@@ -7,10 +7,11 @@ This is our initial simplechain function.
 #include <unistd.h>
 #include <sys/wait.h>
 
-int main(int argc, char * argv[])
+int main(int argc, char *argv[])
 {
   pid_t childpid = 0;
-  int opt, i;
+  int opt;
+  int i;
   int nprocs = 4;
   int nchars = 80;
   int sleeptime = 3;
@@ -35,23 +36,26 @@ int main(int argc, char * argv[])
             printf("sleeptime - Our sleeptime on each iteration (Default is 3).\n");
             printf("niters = Our number of iterations.\n");
             printf("textfile - Our output textfile.\n");
-          break;
+            break;
 
           case'p':
             nprocs = atoi(optarg);
-          break;
+            break;
 
           case'c':
             nchars = atoi(optarg);
-          break;
+            break;
 
           case's':
             sleeptime = atoi(optarg);
-          break;
+            break;
 
           case'i':
             niters = atoi(optarg);
-          break;
+            break;
+
+          default:
+            break;
     }
   }
 
