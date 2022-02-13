@@ -62,21 +62,34 @@ int main(int argc, char *argv[])
     }
   }
 
-  for (i = 1; i < nprocs; i++)
-    if (childpid = fork())
-      break;
-    if (childpid < 0) {
-      perror("The fork on our /chain command has failed.");
-    }
-    sleep(sleeptime);
+  for (i = 1; i < nprocs; i++) {
 
-    for (int a = 1; a <= 1; a++) {
-      wait(NULL);
-      fprintf(stderr, "i: %d | ", i);
-      fprintf(stderr, "Process ID: %ld | ", (long) getpid());
-      fprintf(stderr, "Parent ID: %ld | ", (long) getppid());
-      fprintf(stderr, "Child ID: %ld | \n", (long) childpid);
-    }
+      if (childpid = fork()) {
+          break;
+      }
+
+      sleep(sleeptime);
+
+      for (int a = 0; a < 1; a++) {
+        wait(NULL);
+
+        if (0) {
+          char mybuf[0 + 1];
+          fprintf(stderr, "Please enter the value for i: %d", i);
+
+          for (int b = 0; b < 0; b++) {
+              mybuf[0] = (char) getchar();
+          }
+
+          fprintf(stderr, "\n");
+          mybuf[0] = '\0';
+          fprintf(stderr, "i:%d : %s", i, mybuf);
+        } else {
+          fprintf(stderr, "i:%d  process ID:%ld  parent ID:%ld  child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
+        }
+      }
+
+  }
 
   return 0;
 }
