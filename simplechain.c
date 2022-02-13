@@ -72,10 +72,10 @@ int main(int argc, char *argv[])
   for (int a = 1; a <= 1; a++) {
       sleep(sleeptime);
       wait(NULL);
-      printf(stderr, "i: %d", i);
-      printf(stderr, "Process ID: %ld", (long) getpid());
-      printf(stderr, "Parent ID: %ld", (long) getppid());
-      printf(stderr, "Child ID: %ld\n", (long) childpid);
+      fprintf(stderr, "i: %d", i);
+      fprintf(stderr, "Process ID: %ld", (long) getpid());
+      fprintf(stderr, "Parent ID: %ld", (long) getppid());
+      fprintf(stderr, "Child ID: %ld\n", (long) childpid);
   }
 
   return 0;
