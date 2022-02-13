@@ -5,6 +5,7 @@ This is our initial simplechain function.
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 int main(int argc, char * argv[])
 {
@@ -15,7 +16,7 @@ int main(int argc, char * argv[])
   int sleeptime = 3;
   int niters = 1;
 
-  if (argc != 2) {
+  if (argc < 2) {
     /* check for valid number of command-line arguments */
     fprintf(stderr, "Usage: %s processes\n", argv[0]);
     return 1;
@@ -58,10 +59,10 @@ int main(int argc, char * argv[])
     if (childpid = fork())
       break;
     if (childpid < 0) {
-      perror("The fork on our /simplechain command has failed.")
+      perror("The fork on our /chain command has failed.");
     }
 
-  for(j = 1; j <= 1; j++) {
+  for(i = 1; i <= 1; i++) {
 
       sleep(sleeptime);
       wait(NULL);
