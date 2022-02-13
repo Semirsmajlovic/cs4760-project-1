@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
   int niters = 1;
 
   if (argc < 2) {
-    /* check for valid number of command-line arguments */
     fprintf(stderr, "Usage: %s processes\n", argv[0]);
     return 1;
   }
@@ -71,12 +70,12 @@ int main(int argc, char *argv[])
     }
 
   for (int a = 1; a <= 1; a++) {
-
       sleep(sleeptime);
       wait(NULL);
-
-      fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n",
-        i, (long) getpid(), (long) getppid(), (long) childpid);
+      printf(stderr, "i: %d", i);
+      printf(stderr, "Process ID: %ld", (long) getpid());
+      printf(stderr, "Parent ID: %ld", (long) getppid());
+      printf(stderr, "Child ID: %ld\n", (long) childpid);
   }
 
   return 0;
