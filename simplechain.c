@@ -9,12 +9,17 @@ This is our initial simplechain function.
 int main(int argc, char * argv[]) 
 {
   pid_t childpid = 0;
-  int i, 
-  int n, 
+  int opt, i;
   int nprocs = 4, 
   int nchars = 80, 
   int sleeptime = 3, 
   int niters = 1;
+
+  if (argc != 2) {
+    /* check for valid number of command-line arguments */
+    fprintf(stderr, "Usage: %s processes\n", argv[0]);
+    return 1;
+  }
 
   while((opt = getopt(argc, argv, "hp:c:s:i:")) != -1)
   {
@@ -48,13 +53,6 @@ int main(int argc, char * argv[])
           break;
     }
   }
-
-  if (argc != 2) {
-    /* check for valid number of command-line arguments */
-    fprintf(stderr, "Usage: %s processes\n", argv[0]);
-    return 1;
-  }
-  n = atoi(argv[1]);
 
   for (i = 1; i < n; i++)
     if (childpid = fork())
