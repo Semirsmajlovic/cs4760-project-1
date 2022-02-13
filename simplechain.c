@@ -68,8 +68,6 @@ int main(int argc, char *argv[])
           break;
       }
 
-      sleep(sleeptime);
-
       for (int a = 0; a < 1; a++) {
         wait(NULL);
 
@@ -83,13 +81,12 @@ int main(int argc, char *argv[])
 
           fprintf(stderr, "\n");
           mybuf[0] = '\0';
-          fprintf(stderr, "i:%d : %s", i, mybuf);
+          fprintf(stderr, "i: %d : %s", i, mybuf);
         } else {
-          fprintf(stderr, "i:%d  process ID:%ld  parent ID:%ld  child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
+          fprintf(stderr, "i: %d | process ID: %ld | parent ID: %ld | child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
         }
+        sleep(sleeptime);
       }
-
+      return 0;
   }
-
-  return 0;
 }
