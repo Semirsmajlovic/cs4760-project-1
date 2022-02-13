@@ -3,6 +3,8 @@ CMPSCI 4760
 
 Project #1
 
+Repo: https://github.com/Semirsmajlovic/cs4760-project-1
+
 Description:
 - This program has one simple task with various different commands, so there are numerous callbacks that can be called using -h, -p, -c, -s, -i. Each of these variables have a proper defition which will be explained below:
 
