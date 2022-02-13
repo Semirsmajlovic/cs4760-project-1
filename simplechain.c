@@ -3,14 +3,12 @@ This is our initial simplechain function.
 */
 
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #include <unistd.h>
 
 int main(int argc, char * argv[]) {
   pid_t childpid = 0;
-  int i, n;
+  int i, n, number_procs = 4, number_characters = 80, sleeptime = 3, niters = 1;
 
   if (argc != 2) {
     /* check for valid number of command-line arguments */
