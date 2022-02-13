@@ -1,9 +1,11 @@
-CC = gcc
-CFLAGS = -g
 TARGET = chain
+OBJECT = simplechain.o
 
-chain: simplechain.c
-	$(CC) $? -o $@ $(CFLAGS)
+%.o: %.c
+	$(CC) -c -std=gnu99 $<
+
+chain: $(OBJECT)
+	gcc -o chain ${OBJECT}
 
 clean:
 	/bin/rm -f *.o $(TARGET)
