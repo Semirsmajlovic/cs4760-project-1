@@ -23,10 +23,13 @@ int main(int argc, char * argv[]) {
     if (childpid = fork())
       break;
 
-  sleep(15);
+  sleep(3);
   wait();
-  fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n",
-    i, (long) getpid(), (long) getppid(), (long) childpid);
+
+  for(j = 1; j <= 1; j++){
+      fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n",
+        i, (long) getpid(), (long) getppid(), (long) childpid);
+  }
 
   return 0;
 }
