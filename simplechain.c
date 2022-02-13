@@ -27,14 +27,14 @@ int main(int argc, char *argv[])
     switch(opt)
     {
           case 'h':
-            printf("Run instructions:\n");
+            printf("\nRun instructions:\n");
             printf("Use the following command: chain [-h] [-p nprocs] [-c nchars] [-s sleeptime] [-i niters] < textfile\n\n");
             printf("Definitions:\n");
             printf("nprocs - Number of processes (Default is 4).\n");
             printf("nchars - Number of processes (Default is 80).\n");
             printf("sleeptime - Our sleeptime on each iteration (Default is 3).\n");
             printf("niters = Our number of iterations.\n");
-            printf("textfile - Our output textfile.\n");
+            printf("textfile - Our output textfile.\n\n");
             break;
 
           case 'p':
@@ -63,7 +63,6 @@ int main(int argc, char *argv[])
   }
 
   for (i = 1; i < nprocs; i++) {
-
       if (childpid = fork()) {
           break;
       }
