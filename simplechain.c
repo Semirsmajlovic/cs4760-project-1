@@ -68,15 +68,15 @@ int main(int argc, char *argv[])
     if (childpid < 0) {
       perror("The fork on our /chain command has failed.");
     }
+    sleep(sleeptime);
 
-  for (int a = 1; a <= 1; a++) {
-      sleep(sleeptime);
+    for (int a = 1; a <= 1; a++) {
       wait(NULL);
       fprintf(stderr, "i: %d | ", i);
       fprintf(stderr, "Process ID: %ld | ", (long) getpid());
       fprintf(stderr, "Parent ID: %ld | ", (long) getppid());
       fprintf(stderr, "Child ID: %ld | \n", (long) childpid);
-  }
+    }
 
   return 0;
 }
