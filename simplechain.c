@@ -14,6 +14,7 @@ int main(int argc, char * argv[])
   int nchars = 80, 
   int sleeptime = 3, 
   int niters = 1;
+  int wait = NULL;
 
   if (argc != 2) {
     /* check for valid number of command-line arguments */
@@ -61,7 +62,7 @@ int main(int argc, char * argv[])
   for(j = 1; j <= 1; j++) {
 
       sleep(sleeptime);
-      wait();
+      wait(wait);
 
       fprintf(stderr, "i:%d process ID:%ld parent ID:%ld child ID:%ld\n",
         i, (long) getpid(), (long) getppid(), (long) childpid);
