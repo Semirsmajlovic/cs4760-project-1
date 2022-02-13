@@ -54,7 +54,7 @@ int main(int argc, char * argv[])
     }
   }
 
-  for (i = 1; i < n; i++)
+  for (i = 1; i < nprocs; i++)
     if (childpid = fork())
       break;
     if (childpid < 0) {
