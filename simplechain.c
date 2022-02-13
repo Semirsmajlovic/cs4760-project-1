@@ -6,13 +6,13 @@ This is our initial simplechain function.
 #include <stdlib.h>
 #include <unistd.h>
 
-int main(int argc, char * argv[]) 
+int main(int argc, char * argv[])
 {
   pid_t childpid = 0;
   int opt, i;
   int nprocs = 4;
   int nchars = 80;
-  int sleeptime = 3; 
+  int sleeptime = 3;
   int niters = 1;
 
   if (argc != 2) {
@@ -26,28 +26,28 @@ int main(int argc, char * argv[])
     switch(opt)
     {
           case'h':
-            printf("Run instructions:\n")
+            printf("Run instructions:\n");
             printf("Use the following command: chain [-h] [-p nprocs] [-c nchars] [-s sleeptime] [-i niters] < textfile\n\n");
             printf("Definitions:\n");
             printf("nprocs - Number of processes (Default is 4).\n");
             printf("nchars - Number of processes (Default is 80).\n");
             printf("sleeptime - Our sleeptime on each iteration (Default is 3).\n");
             printf("niters = Our number of iterations.\n");
-            printf("textfile - Our output textfile.\n")
+            printf("textfile - Our output textfile.\n");
           break;
-          
+
           case'p':
             nprocs = atoi(optarg);
           break;
-          
+
           case'c':
             nchars = atoi(optarg);
           break;
-          
+
           case's':
             sleeptime = atoi(optarg);
           break;
-          
+
           case'i':
             niters = atoi(optarg);
           break;
