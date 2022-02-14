@@ -1,5 +1,7 @@
 /*
-This is our initial simplechain function.
+    Project 1
+    Semir Smajlovic
+    02/13/2022
 */
 
 #include <stdio.h>
@@ -40,8 +42,11 @@ int main(int argc, char *argv[])
             printf("textfile - Our output textfile.\n\n");
             break;
 
+          // Convert over our input number to integer.
           case 'p':
             nprocs = atoi(optarg);
+
+            // Print our argument as a int
             if (0) printf("We have a detected nprocs: %d.\n", nprocs);
             break;
 
@@ -70,18 +75,20 @@ int main(int argc, char *argv[])
           break;
       }
 
-      // Is our childpid set to an invalid number? perror out.
+      // Check if our fork is invalid? perror out.
       if (childpid == -1) {
          perror("Our fork has failed.\n");
          break;
       }
 
       for (int a = 0; a <= nprocs; a++) {
+
+        // Wait for parent elements.
         wait(NULL);
 
         if (0) {
 
-          // Set our mybuf array with our allocated nchars count to iterate.
+          // Set our mybuf array with our allocated nchars count to iterate by 1.
           char mybuf[nchars + 1];
           fprintf(stderr, "Please enter the value for i: %d", i);
 
@@ -99,7 +106,7 @@ int main(int argc, char *argv[])
         } else {
 
           // Output standard PID process if our processes is not equal to 0.
-          fprintf(stderr, "i: %d | process ID: %ld | parent ID: %ld | child ID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
+          fprintf(stderr, "i: %d | process ID: %ld | parent ID: %ld | child ID: %ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
         }
 
         // Sleep for 3 seconds.
